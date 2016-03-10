@@ -161,7 +161,7 @@ body {
   background-color: <<BACK_HIGHLIGHT>>;
 }
 
-body.material,
+body,
 .material-detail-view .material-container-details .info .description,
 .song-table th {
   color: #efefef;
@@ -459,4 +459,27 @@ button.goog-buttonset-default:hover {
 
 .material-detail-view .top-tracks {
   background-color: <<BACK_PRIMARY>>;
+}
+
+/*
+* Light theme specific things
+*/
+
+.gmusic-theme-light #material-app-bar {
+  background-color: <<FORE_SECONDARY>>;
+}
+
+.gmusic-theme-light .nav-item-container.selected {
+  color: <<FORE_SECONDARY>>;
+}
+
+body.gmusic-theme-light,
+.gmusic-theme-light .material-detail-view .material-container-details .info .description,
+.gmusic-theme-light .song-table th {
+  color: #212121;
+}
+
+.gmusic-theme-light .song-row .song-indicator {
+  background-image: url('ani_equalizer_black.gif');
+  background-size: 40px 40px;
 }

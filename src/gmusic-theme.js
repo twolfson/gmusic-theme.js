@@ -6,6 +6,14 @@ const BASE_CSS = fs.readFileSync(__dirname + '/../build/rework.css', 'utf8');
 const BASE_SVG = fs.readFileSync(__dirname + '/../lib/logo.svg', 'utf8');
 const CONSTANTS = require('../lib/_constants');
 
+const DEFAULTS = {
+  BACK_PRIMARY: '#222326',
+  BACK_SECONDARY: '#121314',
+  BACK_HIGHLIGHT: '#615F59',
+  FORE_PRIMARY: '#FFFFFF',
+  FORE_SECONDARY: '#1ED760',
+};
+
 window.GMusicTheme = class GMusicTheme {
   /**
    * Constructor for a new Google Music Theme API.
@@ -16,11 +24,11 @@ window.GMusicTheme = class GMusicTheme {
    */
   constructor(options = {}) {
     // DEV: Use the colors specified in the options or the default if it isn't set
-    this.BACK_PRIMARY = '#222326';
-    this.BACK_SECONDARY = '#121314';
-    this.BACK_HIGHLIGHT = '#615F59';
-    this.FORE_PRIMARY = '#FFFFFF';
-    this.FORE_SECONDARY = '#1ED760';
+    this.BACK_PRIMARY = DEFAULTS.BACK_PRIMARY;
+    this.BACK_SECONDARY = DEFAULTS.BACK_SECONDARY;
+    this.BACK_HIGHLIGHT = DEFAULTS.BACK_HIGHLIGHT;
+    this.FORE_PRIMARY = DEFAULTS.FORE_PRIMARY;
+    this.FORE_SECONDARY = DEFAULTS.FORE_SECONDARY;
 
     this.enabled = false;
     if (options.enabled) {
@@ -44,20 +52,40 @@ window.GMusicTheme = class GMusicTheme {
   }
 
   /**
-   * Enables the custom theme
-   */
+  * Enabled the dark theme, this allows for backwards compatibility
+  */
   enable() {
-    document.body.classList.add(CONSTANTS.CLASS_NAMESPACE);
-    this.enabled = true;
-    this._drawLogo();
+    this.enableAll();
+  }
+
+  /**
+   * Enables the custom theme in dark mode (All colors)
+   */
+  enableAll() {
+    this.disable();
+    document.querySelector('html').classList.add(CONSTANTS.CLASS_NAMESPACE);
+    this.enabled = 1;
+    this.redrawTheme();
+  }
+
+  /**
+  * Enables the custom theme in light mode (only highlight)
+  */
+  enableHighlight() {
+    this.disable();
+    document.querySelector('html').classList.add(CONSTANTS.CLASS_NAMESPACE);
+    document.body.classList.add(CONSTANTS.CLASS_NAMESPACE_LIGHT);
+    this.enabled = 2;
+    this.redrawTheme();
   }
 
   /**
    * Disables the custom theme
    */
   disable() {
-    document.body.classList.remove(CONSTANTS.CLASS_NAMESPACE);
-    this.enabled = false;
+    document.querySelector('html').classList.remove(CONSTANTS.CLASS_NAMESPACE);
+    document.body.classList.remove(CONSTANTS.CLASS_NAMESPACE_LIGHT);
+    this.enabled = 0;
     this._drawLogo();
   }
 
@@ -132,13 +160,25 @@ window.GMusicTheme = class GMusicTheme {
   }
 
   _substituteColors(styleString) {
+    // DEV: If replacing all colors
+    if (this.enabled === 1) {
+      return styleString
+        .replace(/<<BACK_PRIMARY>>/g, this.BACK_PRIMARY)
+        .replace(/<<BACK_SECONDARY>>/g, this.BACK_SECONDARY)
+        .replace(/<<BACK_HIGHLIGHT>>/g, this.BACK_HIGHLIGHT)
+        .replace(/<<FORE_PRIMARY>>/g, this.FORE_PRIMARY)
+        .replace(/<<FORE_SECONDARY>>/g, this.FORE_SECONDARY)
+        .replace(/<<BACK_SECONDARY_O>>/g, this._rgba(this.BACK_SECONDARY, 0.5))
+        .replace(/<<NOTIMPORTANT>> \!important/g, '');
+    }
+    // DEV: Else remove all rules for anything that isn't the highlight color (foreSecondary)
     return styleString
-      .replace(/<<BACK_PRIMARY>>/g, this.BACK_PRIMARY)
-      .replace(/<<BACK_SECONDARY>>/g, this.BACK_SECONDARY)
-      .replace(/<<BACK_HIGHLIGHT>>/g, this.BACK_HIGHLIGHT)
-      .replace(/<<FORE_PRIMARY>>/g, this.FORE_PRIMARY)
+      .replace(/\n.+<<BACK_PRIMARY>>.*;\n/g, '')
+      .replace(/\n.+<<BACK_SECONDARY>>.*;\n/g, '')
+      .replace(/\n.+<<BACK_HIGHLIGHT>>.*;\n/g, '')
+      .replace(/\n.+<<FORE_PRIMARY>>.*;\n/g, '')
       .replace(/<<FORE_SECONDARY>>/g, this.FORE_SECONDARY)
-      .replace(/<<BACK_SECONDARY_O>>/g, this._rgba(this.BACK_SECONDARY, 0.5))
+      .replace(/\n.+<<BACK_SECONDARY_O>>.*;\n/g, '')
       .replace(/<<NOTIMPORTANT>> \!important/g, '');
   }
 };

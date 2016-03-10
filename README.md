@@ -56,8 +56,14 @@ included will not be changed from the defaults.  `enabled` is set to false by de
 
 ### States
 
+#### `enableAll`
+Enables the current custom theme for ALL custom colors.  Everything becomes themed
+
+### `enableHighlight`
+Enables the current custom theme but ONLY uses the custom highlight color.  Everything else remains standard Google Play Music styles.
+
 #### `enable()`
-Enables the current custom theme
+Is a mirror of `enableAll`, present for backwards compatibility
 
 #### `disable()`
 Disables the current custom theme
