@@ -82,6 +82,10 @@ FORE_PRIMARY   = '#FFFFFF';
 FORE_SECONDARY = '#1ED760';
 ```
 
+|                               BACK_PRIMARY                               |                              BACK_SECONDARY                              |                              BACK_HIGHLIGHT                              |                               FORE_PRIMARY                               |                              FORE_SECONDARY                              |
+|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| <div style="background: #222326; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #121314; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #615F59; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #FFFFFF; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #1ED760; width: 50px; height: 50px">&nbsp;</div> |
+
 ## Color Format
 When changing colors you can use **ANY** CSS standard color syntax.  `#`, `rgb()`, `rgba()` Etc.
 
