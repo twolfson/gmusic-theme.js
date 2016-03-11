@@ -86,6 +86,8 @@ FORE_SECONDARY = '#1ED760';
 |-----------------------|-------------------------|-------------------------|-----------------------|-------------------------|
 | ![BACK_PRIMARY_IMG][] | ![BACK_SECONDARY_IMG][] | ![BACK_HIGHLIGHT_IMG][] | ![FORE_PRIMARY_IMG][] | ![FORE_SECONDARY_IMG][] |
 
+<!-- DEV: We use `style=flat-squared` to prevent gradients messing up the swatch -->
+
 [BACK_PRIMARY_IMG]: https://img.shields.io/badge/%23222326-%20%20%20-222326.svg?style=flat-squared
 [BACK_SECONDARY_IMG]: https://img.shields.io/badge/%23121314-%20%20%20-121314.svg?style=flat-squared
 [BACK_HIGHLIGHT_IMG]: https://img.shields.io/badge/%23615F59-%20%20%20-615F59.svg?style=flat-squared
