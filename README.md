@@ -82,11 +82,15 @@ FORE_PRIMARY   = '#FFFFFF';
 FORE_SECONDARY = '#1ED760';
 ```
 
-<img src="data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7"/>
+|      BACK_PRIMARY     |      BACK_SECONDARY     |      BACK_HIGHLIGHT     |      FORE_PRIMARY     |      FORE_SECONDARY     |
+|-----------------------|-------------------------|-------------------------|-----------------------|-------------------------|
+| ![BACK_PRIMARY_IMG][] | ![BACK_SECONDARY_IMG][] | ![BACK_HIGHLIGHT_IMG][] | ![FORE_PRIMARY_IMG][] | ![FORE_SECONDARY_IMG][] |
 
-|                               BACK_PRIMARY                               |                              BACK_SECONDARY                              |                              BACK_HIGHLIGHT                              |                               FORE_PRIMARY                               |                              FORE_SECONDARY                              |
-|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| <div style="background: #222326; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #121314; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #615F59; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #FFFFFF; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #1ED760; width: 50px; height: 50px">&nbsp;</div> |
+[BACK_PRIMARY_IMG]: https://img.shields.io/badge/%222326-%20%20%20-%222326.svg
+[BACK_SECONDARY_IMG]: https://img.shields.io/badge/%121314-%20%20%20-%121314.svg
+[BACK_HIGHLIGHT_IMG]: https://img.shields.io/badge/%615F59-%20%20%20-%615F59.svg
+[FORE_PRIMARY_IMG]: https://img.shields.io/badge/%FFFFFF-%20%20%20-%FFFFFF.svg
+[FORE_SECONDARY_IMG]: https://img.shields.io/badge/%1ED760-%20%20%20-%1ED760.svg
 
 ## Color Format
 When changing colors you can use **ANY** CSS standard color syntax.  `#`, `rgb()`, `rgba()` Etc.
