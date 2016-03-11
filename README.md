@@ -82,8 +82,9 @@ FORE_PRIMARY   = '#FFFFFF';
 FORE_SECONDARY = '#1ED760';
 ```
 
-<svg width="50" height="50" viewBox="0 0 50"><rect x="0" y="0" fill="#FF00FF"></rect></svg>
-
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <rect x="25" y="25" width="200" height="200" fill="lime" stroke-width="4" stroke="pink" />
+</svg>
 |                               BACK_PRIMARY                               |                              BACK_SECONDARY                              |                              BACK_HIGHLIGHT                              |                               FORE_PRIMARY                               |                              FORE_SECONDARY                              |
 |--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|
 | <div style="background: #222326; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #121314; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #615F59; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #FFFFFF; width: 50px; height: 50px">&nbsp;</div> | <div style="background: #1ED760; width: 50px; height: 50px">&nbsp;</div> |
